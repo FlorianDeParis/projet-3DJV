@@ -25,7 +25,7 @@ define('DB_NAME', 'projet-3djv');
 define('DB_USER', 'root');
 
 /** Mot de passe de la base de données MySQL. */
-define('DB_PASSWORD', 'test');
+define('DB_PASSWORD', '');
 
 /** Adresse de l'hébergement MySQL. */
 define('DB_HOST', 'localhost');
