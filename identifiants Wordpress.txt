@@ -1,3 +1,0 @@
-identifiants Wordpress
-	id: esgi
-	mdp: 3djv
