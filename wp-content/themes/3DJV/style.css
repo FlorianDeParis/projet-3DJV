@@ -15,6 +15,17 @@ Text Domain: twentyten
 /* =Reset default browser CSS. Based on work by Eric Meyer.
 -------------------------------------------------------------- */
 
+
+@font-face{
+	font-family: Roboto;
+	src: url(./fonts/Roboto-Regular.ttf);
+}
+
+@font-face{
+	font-family: weblysleekuisb;
+	src: url(./fonts/weblysleekuisb.ttf);
+}
+
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -171,9 +182,7 @@ div.menu,
 	width: 940px;
 }
 #wrapper {
-	background: #fff;
-	margin-top: 20px;
-	padding: 0 20px;
+	background: #1d1d1d;
 }
 
 /* Structure the footer area */
@@ -348,9 +357,10 @@ a:hover {
 /* =Header
 -------------------------------------------------------------- */
 
-#header {
-	padding: 30px 0 0 0;
-}
+.banner_3djv{height: 80px; position: relative; background: #252525; margin-bottom: 15px;}
+	.logo_3djv{height: 55px; width: auto; position: absolute; left: 25px; top:13px;}
+	#site-description {font-family: 'weblysleekuisb', Arial; margin-left: 170px; line-height: 80px; font-size: 20px; color: #496FB1; text-transform: uppercase;}
+
 #site-title {
 	float: left;
 	font-size: 30px;
@@ -363,13 +373,7 @@ a:hover {
 	font-weight: bold;
 	text-decoration: none;
 }
-#site-description {
-	clear: right;
-	float: right;
-	font-style: italic;
-	margin: 15px 0 18px 0;
-	width: 220px;
-}
+
 
 /* This is the custom header image */
 #branding img {
@@ -384,7 +388,7 @@ a:hover {
 -------------------------------------------------------------- */
 
 #access {
-	background: #000;
+	background: #252525;
 	display: block;
 	float: left;
 	margin: 0 auto;
