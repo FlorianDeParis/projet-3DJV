@@ -27,6 +27,9 @@
 				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
 					<?php bloginfo( 'name' ); ?>
 				</a>
+				<a href="<?php echo esc_url(get_page_link(82)); ?>" title="Mentions légales" rel="home">
+					Mentions légales
+				</a>
 			</div><!-- #site-info -->
 
 			<div id="site-generator">
