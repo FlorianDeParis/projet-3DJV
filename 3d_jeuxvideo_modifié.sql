@@ -25,6 +25,7 @@ SET time_zone = "+00:00";
 --
 -- Structure de la table `wp_ahm_download_stats`
 --
+USE 3d_jeuxvideo;
 
 CREATE TABLE IF NOT EXISTS `wp_ahm_download_stats` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
