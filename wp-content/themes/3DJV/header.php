@@ -61,6 +61,7 @@
 			<div class="banner_3djv">
 				<img class="logo_3djv" src="<?php bloginfo('template_directory'); ?>/images/logo.png">
 				<div id="site-description"><?php bloginfo( 'description' ); ?></div>
+				<?php get_search_form(); ?>
 			</div>
 			<div id="access" role="navigation">
 			  <?php /* Allow screen readers / text browsers to skip the navigation menu and get right to the good stuff */ ?>
