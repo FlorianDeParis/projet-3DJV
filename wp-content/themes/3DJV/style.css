@@ -43,6 +43,8 @@ table, caption, tbody, tfoot, thead, tr, th, td {
 }
 body {
 	line-height: 1;
+	padding-left: 9.4%;
+	padding-right: 9.4%;
 }
 h1, h2, h3, h4, h5, h6 {
 	clear: both;
@@ -84,7 +86,7 @@ DESCRIPTION: Two-column fixed layout with one sidebar right of content
 	width: 100%;
 }
 #content {
-	margin: 0 280px 0 20px;
+	width: 100%;
 }
 #primary,
 #secondary {
@@ -179,7 +181,6 @@ div.menu,
 #main,
 #wrapper {
 	margin: 0 auto;
-	width: 940px;
 }
 #wrapper {
 	background: #1d1d1d;
@@ -334,10 +335,10 @@ textarea {
 	padding: 2px;
 }
 a:link {
-	color: #0066cc;
+	color: #fff;
 }
 a:visited {
-	color: #743399;
+	color: #fff;
 }
 a:active,
 a:hover {
@@ -360,6 +361,10 @@ a:hover {
 .banner_3djv{height: 80px; position: relative; background: #252525; margin-bottom: 15px;}
 	.logo_3djv{height: 55px; width: auto; position: absolute; left: 25px; top:13px;}
 	#site-description {font-family: 'weblysleekuisb', Arial; margin-left: 170px; line-height: 80px; font-size: 20px; color: #496FB1; text-transform: uppercase;}
+	.banner_3djv .searchbar{position: absolute; right: 35px; top: 30px; background: white; height: 25px; border-radius: 10px;}
+		.banner_3djv .searchbar input{font-style: italic!important; border: none; background-color: transparent; font-family: 'Roboto', Arial;}
+		.banner_3djv .searchbar input:focus{border: none;}
+		.banner_3djv button{height: 19px; width:30px; background-color: transparent; background-image:url(images/searchicon.png); background-repeat:no-repeat; background-position: 7px 3px; border: none;}
 
 #site-title {
 	float: left;
@@ -388,11 +393,14 @@ a:hover {
 -------------------------------------------------------------- */
 
 #access {
+	font-family: 'Roboto', Arial;
+	text-transform: uppercase;
+	font-weight: bold;
 	background: #252525;
 	display: block;
 	float: left;
 	margin: 0 auto;
-	width: 940px;
+	width: 100%;
 }
 #access .menu-header,
 div.menu {
@@ -471,10 +479,19 @@ div.menu li {
 /* =Content
 -------------------------------------------------------------- */
 
+#container{width: calc(100% - 240px);}
+#container h3{margin: 0px!important; text-transform: uppercase; text-decoration: none!important; color:#aaa!important; line-height: 65px!important; font-weight: bold;}
+	#container #main-box-1, #container #main-box-2, #container #main-box-3, #container #main-box-4{height: 65px; background-color: #252525; text-align: center; font-family:'Roboto', Arial;}
+	#container #main-box-1{margin-bottom: 10px; min-height: 250px;}
+	#container .main-box-middle{margin-bottom: 10px;}	
+		#container #main-box-2{width:calc(50% - 10px); margin-right: 6px; display: inline-block; min-height: 250px;}
+		#container #main-box-3{width:calc(50% - 10px); margin-left: 6px; display: inline-block; min-height: 250px;}
+	#container #main-box-4{min-height: 250px;}
+
 #main {
 	clear: both;
 	overflow: hidden;
-	padding: 40px 0 0 0;
+	padding: 15px 0 0 0;
 }
 #content {
 	margin-bottom: 36px;
@@ -520,7 +537,6 @@ div.menu li {
 #content h4,
 #content h5,
 #content h6 {
-	color: #000;
 	line-height: 1.5em;
 	margin: 0 0 20px 0;
 }
