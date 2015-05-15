@@ -17,28 +17,46 @@ get_header(); ?>
 	<div id="container">
 		<div id="content" role="main">
 			<div id="main-box-1" class="main-box vce-border-top main-box-half">
-				<a href="">
-					<span class="spacer"></span>
-					<h3 class="main-box-title cat-319">Actualité</h3>
-					<span class="spacer"></span>
-				</a>
+				<div class="main-box-header">
+					<span class="sprt"></span>
+					<a href=""><h3 class="main-box-title cat-319">Actualité</h3></a>
+					<span class="sprt"></span>
+				</div>
+				<div class="main-box-content">
+					test box 1
+				</div>
 			</div>
 			<div class="main-box-middle">
 				<div id="main-box-2" class="main-box vce-border-top main-box-half">
-					<a href="">
-						<h3 class="main-box-title cat-319">TP</h3>
-					</a>
+					<div class="main-box-header">
+						<span class="sprt"></span>
+						<a href=""><h3 class="main-box-title cat-319">TP</h3></a>
+						<span class="sprt"></span>
+					</div>
+					<div class="main-box-content">
+						test box 2
+					</div>
 				</div>
 				<div id="main-box-3" class="main-box vce-border-top main-box-half">
-					<a href="">
-						<h3 class="main-box-title cat-319">Tutos</h3>
-					</a>
+					<div class="main-box-header">
+						<span class="sprt"></span>
+						<a href=""><h3 class="main-box-title cat-319">Tutos</h3></a>
+						<span class="sprt"></span>
+					</div>
+					<div class="main-box-content">
+						text box 3
+					</div>
 				</div>
 			</div>
 			<div id="main-box-4" class="main-box vce-border-top main-box-half">
-				<a href="">
-					<h3 class="main-box-title cat-319">Médias</h3>
-				</a>
+				<div class="main-box-header">
+					<span class="sprt"></span>
+					<a href=""><h3 class="main-box-title cat-319">Médias</h3></a>
+					<span class="sprt"></span>
+				</div>
+				<div class="main-box-content">
+					text box 4
+				</div>
 			</div>
 			<?php
 			/*
