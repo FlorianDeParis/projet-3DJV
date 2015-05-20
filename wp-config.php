@@ -22,10 +22,10 @@ define('DB_NAME', '3d_jeuxvideo');
 define('DB_USER', 'root');
 
 /** MySQL database password */
-define('DB_PASSWORD', '');
+define('DB_PASSWORD', 'root');
 
 /** MySQL hostname */
-define('DB_HOST', 'localhost');
+define('DB_HOST', '83.156.178.59:4444');
 
 /** Database Charset to use in creating database tables. */
 define('DB_CHARSET', 'utf8');
