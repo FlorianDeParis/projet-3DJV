@@ -36,8 +36,7 @@ get_header(); ?>
 					<div class="main-box-content">
 						test box 2
 					</div>
-				</div>
-				<div id="main-box-3" class="main-box vce-border-top main-box-half">
+				</div><div id="main-box-3" class="main-box vce-border-top main-box-half">
 					<div class="main-box-header">
 						<span class="sprt"></span>
 						<a href=""><h3 class="main-box-title cat-319">Tutos</h3></a>

@@ -484,12 +484,12 @@ div.menu li {
 #container{width: calc(100% - 240px);}
 #container h3{margin: 0px!important; text-transform: uppercase; text-decoration: none!important; color:#aaa!important; line-height: 65px!important; font-weight: bold; display: inline-block;}
 	#container #main-box-1, #container #main-box-2, #container #main-box-3, #container #main-box-4{background-color: #252525; text-align: center; font-family:'Roboto', Arial;}
-	#container #main-box-1{margin-bottom: 10px; min-height: 250px;}
+	#container #main-box-1{margin-bottom: 10px;}
 	#container .main-box-middle{margin-bottom: 10px;}	
-		#container #main-box-2{width:calc(50% - 10px); margin-right: 6px; display: inline-block; min-height: 250px;}
-		#container #main-box-3{width:calc(50% - 10px); margin-left: 6px; display: inline-block; min-height: 250px;}
+		#container #main-box-2{width:calc(50% - 5px); margin-right:5px; display: inline-block; min-height: 250px;}
+		#container #main-box-3{width:calc(50% - 5px); margin-left:5px; display: inline-block; min-height: 250px;}
 			#container .main-box-header{height: 65px;}
-			#container .main-box-content{height: 100%!important; width:100%; background-color:#343434; color:#aaa;}
+			#container .main-box-content{min-height: 250px; width:100%; background-color:#343434; color:#aaa;}
 	#container #main-box-4{min-height: 250px;}
 	#container .sprt{display: inline-block;}
 
