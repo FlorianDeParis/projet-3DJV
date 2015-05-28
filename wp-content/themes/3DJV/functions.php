@@ -593,3 +593,13 @@ function twentyten_get_gallery_images() {
 
 	return $images;
 }
+
+
+// Personnalisation du logo de la page de connexion back-office
+
+
+function childtheme_custom_login() {
+	echo '<link rel="stylesheet" type="text/css" href="' . get_bloginfo('stylesheet_directory') . '/login.css" />';
+}
+
+add_action('login_head', 'childtheme_custom_login');
