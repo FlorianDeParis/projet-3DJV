@@ -25,21 +25,22 @@ get_header(); ?>
 				<div class="main-box-content">
 					<ul>
 						<?php
-						$actu_args = array( 'posts_per_page' => 10, 'order'=> 'ASC', 'orderby' => 'title', 'category' => 4, 'posts_per_page' => 5, 'offset'=> 1 );
+						$actu_args = array( 'posts_per_page' => 10, 'order'=> 'ASC', 'orderby' => 'title', 'category' => 4, 'posts_per_page' => 5, 'offset'=> 0 );
 						$postslist = get_posts( $actu_args );
 						foreach ( $postslist as $post ) :
 						  setup_postdata( $post ); ?> 
 							<li>
-								<!--<?php the_date(); ?>-->
-								<p><?php the_title(); ?></p>
-								<p class="main-box-content_excerpt"><?php the_excerpt(); ?></p>
-								
+								<a href="<?php the_permalink();?>" class="no_underline no_hover article_link">
+									<!--<?php the_date(); ?>-->
+									<p><?php the_title(); ?></p>
+									<p><?php the_excerpt(); ?></p>
+								</a>
 							</li>
 						<?php
 						endforeach; 
 						wp_reset_postdata();
 						?>
-						<li><a href="?cat=4">VOIR PLUS</a></li>
+						<li><a href="?cat=4" class="no_hover">VOIR PLUS</a></li>
 					</ul>
 				</div>
 			</div>
@@ -52,15 +53,16 @@ get_header(); ?>
 					</div>
 					<div class="main-box-content">
 						<?php
-						$tp_args = array( 'posts_per_page' => 10, 'order'=> 'ASC', 'orderby' => 'title', 'category' => 7, 'posts_per_page' => 5, 'offset'=> 1 );
+						$tp_args = array( 'posts_per_page' => 10, 'order'=> 'ASC', 'orderby' => 'title', 'category' => 7, 'posts_per_page' => 5, 'offset'=> 0 );
 						$postslist = get_posts( $tp_args );
 						foreach ( $postslist as $post ) :
 						  setup_postdata( $post ); ?> 
 							<li>
-								<?php the_date(); ?>
-								<br />
-								<?php the_title(); ?>   
-								<?php the_excerpt(); ?>
+								<a href="<?php the_permalink();?>" class="no_underline no_hover article_link">
+									<!--<?php the_date(); ?>-->
+									<p><?php the_title(); ?></p>
+									<p><?php the_excerpt(); ?></p>
+								</a>
 							</li>
 						<?php
 						endforeach; 
@@ -75,9 +77,23 @@ get_header(); ?>
 						<span class="sprt"></span>
 					</div>
 					<div class="main-box-content">
-						<p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-						"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-					"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+						<?php
+						$tp_args = array( 'posts_per_page' => 10, 'order'=> 'ASC', 'orderby' => 'title', 'category' => 5, 'posts_per_page' => 5, 'offset'=> 0 );
+						$postslist = get_posts( $tp_args );
+						foreach ( $postslist as $post ) :
+						  setup_postdata( $post ); ?> 
+							<li>
+								<a href="<?php the_permalink();?>" class="no_underline no_hover article_link">
+									<!--<?php the_date(); ?>-->
+									<p><?php the_title(); ?></p>
+									<p><?php the_excerpt(); ?></p>
+								</a>
+							</li>
+						<?php
+						endforeach; 
+						wp_reset_postdata();
+						?>
+						<li><a href="?cat=5">VOIR PLUS</a></li>
 					</div>
 				</div>
 			</div>
@@ -88,7 +104,23 @@ get_header(); ?>
 					<span class="sprt"></span>
 				</div>
 				<div class="main-box-content">
-					text box 4
+					<?php
+						$tp_args = array( 'posts_per_page' => 10, 'order'=> 'ASC', 'orderby' => 'title', 'category' => 6, 'posts_per_page' => 5, 'offset'=> 0 );
+						$postslist = get_posts( $tp_args );
+						foreach ( $postslist as $post ) :
+						  setup_postdata( $post ); ?> 
+							<li>
+								<a href="<?php the_permalink();?>" class="no_underline no_hover article_link">
+									<!--<?php the_date(); ?>-->
+									<p><?php the_title(); ?></p>
+									<p><?php the_excerpt(); ?></p>
+								</a>
+							</li>
+						<?php
+						endforeach; 
+						wp_reset_postdata();
+						?>
+						<li><a href="?cat=6">VOIR PLUS</a></li>
 				</div>
 			</div>
 			<?php
