@@ -603,3 +603,15 @@ function childtheme_custom_login() {
 }
 
 add_action('login_head', 'childtheme_custom_login');
+
+// Ajout de fichiers Javascript personnalisés
+
+function custom_js(){
+
+		wp_enqueue_script( 'syncbox',
+		get_template_directory_uri() . '/js/syncbox.js',
+		array() );
+	
+}
+ 
+add_action( 'wp_head', 'custom_js' );

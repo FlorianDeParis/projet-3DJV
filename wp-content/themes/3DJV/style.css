@@ -485,7 +485,7 @@ div.menu li {
 
 #container{width: calc(100% - 240px);}
 #container h3{margin: 0px!important; text-transform: uppercase; text-decoration: none!important; color:#aaa!important; line-height: 65px!important; font-weight: bold; display: inline-block;}
-	#container #main-box-1, #container #main-box-2, #container #main-box-3, #container #main-box-4{background-color: #252525; text-align: center; font-family:'Roboto', Arial;}
+	#container #main-box-1, #container #main-box-2, #container #main-box-3, #container #main-box-4{background-color: #343434; text-align: center; font-family:'Roboto', Arial;}
 	#container #main-box-1 ul, #container #main-box-2 ul, #container #main-box-3 ul, #container #main-box-4 ul{margin-left: 0px;}
 	#container #main-box-1 li, #container #main-box-2 li, #container #main-box-3 li, #container #main-box-4 li{list-style-type: none;}
 		#container .article_link{padding-top: 20px!important; padding-bottom: 20px!important;}
@@ -494,7 +494,7 @@ div.menu li {
 	#container .main-box-middle{margin-bottom: 10px; vertical-align:top!important;}	
 		#container #main-box-2{width:calc(50% - 5px); margin-right:5px; display: inline-block; min-height: 250px;}
 		#container #main-box-3{width:calc(50% - 5px); margin-left:5px; display: inline-block; min-height: 250px; vertical-align:top!important;}
-			#container .main-box-header{height: 65px;}
+			#container .main-box-header{height: 65px; background-color: #252525;}
 			#container .main-box-content{min-height: 250px; width:100%; background-color:#343434; color:#aaa; padding-bottom: 1px; padding-top: 10px;}
 	#container #main-box-4{min-height: 250px;}
 	#container .sprt{display: inline-block;}
@@ -1333,7 +1333,11 @@ img#wpstats {
 
 #container .post .not-found .entry-title{color: #496FB1;}
 
+/* MENU DE L'UTILISATEUR*/
 
+.menu_utilisateur{width: 100%; background: #343434; color: white; font-family: 'Roboto', Arial; text-align: center;}
+	.menu_utilisateur h2{padding-top: 20px; padding-bottom: 20px; margin-bottom:0px; background: #252525; text-transform: uppercase;}
+	.menu_utilisateur a{display: block; padding-top: 15px; padding-bottom: 15px; font-size: 16px;}
 
 /* =Mobile Safari ( iPad, iPhone and iPod Touch )
 -------------------------------------------------------------- */
