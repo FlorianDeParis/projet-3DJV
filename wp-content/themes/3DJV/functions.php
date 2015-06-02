@@ -331,6 +331,62 @@ add_filter( 'get_the_excerpt', 'twentyten_custom_excerpt_more' );
  */
 add_filter( 'use_default_gallery_style', '__return_false' );
 
+
+// ETAN 2015-06-02 code login
+
+ if(!function_exists( 'add_login_logout_menu')) 
+{
+    function add_login_logout_menu($items, $args)
+    {
+        if(is_admin() || $args->theme_location != 'primary') return $items; 
+        if( is_user_logged_in( ) )
+            $link = '<a href="' . wp_logout_url('/projet-3DJV/') . '" title="Logout">' . __( 'Se deconnecter' ) . '</a>';
+        else  
+            $link = '<a href="' . '/projet-3DJV/?page_id=87' . '" title="Login">' . __( 'Se connecter' ) . '</a>';
+
+        return $items .= '<li id="login_logout_menu-link" class="menu-item menu-type-link">'. $link . '</li>';
+    }
+}
+add_filter( 'wp_nav_menu_items', 'add_login_logout_menu', 20, 5);
+//------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+function redirect_login_page() {
+    $login_page  = home_url( '?page_id=87/' );
+    $page_viewed = basename($_SERVER['REQUEST_URI']);
+ 
+    if( $page_viewed == "wp-login.php" && $_SERVER['REQUEST_METHOD'] == 'GET') {
+        wp_redirect($login_page);
+        exit;
+    }
+}
+add_action('init','redirect_login_page');
+
+function login_failed() {
+    $login_page  = home_url( '?page_id=87/' );
+    wp_redirect( $login_page . '?login=failed' );
+    exit;
+}
+add_action( 'wp_login_failed', 'login_failed' );
+ 
+function verify_username_password( $user, $username, $password ) {
+    $login_page  = home_url( '?page_id=87/' );
+    if( $username == "" || $password == "" ) {
+        wp_redirect( $login_page . "?login=empty" );
+        exit;
+    }
+}
+add_filter( 'authenticate', 'verify_username_password', 1, 3);
+
+function logout_page() {
+    $login_page  = home_url( '' );
+    wp_redirect( $login_page . "?login=false" );
+    exit;
+}
+add_action('wp_logout','logout_page');
+
+
+
+
+
 /**
  * Deprecated way to remove inline styles printed when the gallery shortcode is used.
  *
@@ -595,7 +651,7 @@ function twentyten_get_gallery_images() {
 }
 
 
-// Personnalisation du logo de la page de connexion back-office
+// FLORIAN Personnalisation du logo de la page de connexion back-office
 
 
 function childtheme_custom_login() {
