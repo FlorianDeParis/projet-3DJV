@@ -27,7 +27,7 @@ define('DB_USER', 'projet_web');
 define('DB_PASSWORD', '20152016');
 
 /** MySQL hostname */
-//define('DB_HOST', 'localhost');http://83.156.178.59:4444/
+//define('DB_HOST', 'localhost');
 //define('DB_HOST', 'localhost');
 define('DB_HOST', '83.156.178.59:5555');
 /** Database Charset to use in creating database tables. */
@@ -82,5 +82,5 @@ if ( !defined('ABSPATH') )
 /** Sets up WordPress vars and included files. */
 require_once(ABSPATH . 'wp-settings.php');
 
-define('WP_SITEURL', "http://localhost/projet_3DJV");
-define('WP_HOME', "http://localhost/projet_3DJV");
+define('WP_SITEURL', "http://localhost/projet-3DJV");
+define('WP_HOME', "http://localhost/projet-3DJV");
