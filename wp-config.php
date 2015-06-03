@@ -19,14 +19,17 @@
 define('DB_NAME', '3d_jeuxvideo');
 
 /** MySQL database username */
+//define('DB_USER', 'root');
 define('DB_USER', 'projet_web');
 
 /** MySQL database password */
+//define('DB_PASSWORD', '');
 define('DB_PASSWORD', '20152016');
 
 /** MySQL hostname */
-define('DB_HOST','83.156.178.59:5555');
-
+//define('DB_HOST', 'localhost');http://83.156.178.59:4444/
+//define('DB_HOST', 'localhost');
+define('DB_HOST', '83.156.178.59:5555');
 /** Database Charset to use in creating database tables. */
 define('DB_CHARSET', 'utf8');
 

@@ -44,6 +44,10 @@
  * Used to set the width of images and content. Should be equal to the width the theme
  * is designed for, generally via the style.css stylesheet.
  */
+ 
+
+ 
+ 
 if ( ! isset( $content_width ) )
 	$content_width = 640;
 
@@ -263,6 +267,13 @@ add_filter( 'wp_page_menu_args', 'twentyten_page_menu_args' );
  * @param int $length The number of excerpt characters.
  * @return int The filtered number of excerpt characters.
  */
+ 
+ 
+ 
+ 
+ 
+ 
+ 
 function twentyten_excerpt_length( $length ) {
 	return 40;
 }
@@ -332,7 +343,10 @@ add_filter( 'get_the_excerpt', 'twentyten_custom_excerpt_more' );
 add_filter( 'use_default_gallery_style', '__return_false' );
 
 
-// ETAN 2015-06-02 code login
+
+
+
+
 
  if(!function_exists( 'add_login_logout_menu')) 
 {
@@ -385,7 +399,7 @@ add_action('wp_logout','logout_page');
 
 
 
-
+//------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
 
 /**
  * Deprecated way to remove inline styles printed when the gallery shortcode is used.
@@ -406,6 +420,10 @@ if ( version_compare( $GLOBALS['wp_version'], '3.1', '<' ) )
 	add_filter( 'gallery_style', 'twentyten_remove_gallery_css' );
 
 if ( ! function_exists( 'twentyten_comment' ) ) :
+
+
+
+
 /**
  * Template for comments and pingbacks.
  *
@@ -473,6 +491,8 @@ endif;
  *
  * @uses register_sidebar()
  */
+ 
+ 
 function twentyten_widgets_init() {
 	// Area 1, located at the top of the sidebar.
 	register_sidebar( array(
@@ -650,8 +670,7 @@ function twentyten_get_gallery_images() {
 	return $images;
 }
 
-
-// FLORIAN Personnalisation du logo de la page de connexion back-office
+// Personnalisation du logo de la page de connexion back-office
 
 
 function childtheme_custom_login() {
@@ -659,3 +678,6 @@ function childtheme_custom_login() {
 }
 
 add_action('login_head', 'childtheme_custom_login');
+
+
+
