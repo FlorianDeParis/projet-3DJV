@@ -27,12 +27,12 @@
 				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
 					<?php bloginfo( 'name' ); ?>
 				</a>
-				<a href="<?php echo esc_url(get_page_link(87)); ?>" title="Mentions légales" rel="home">
+				<a href="<?php echo esc_url(get_page_link(82)); ?>" title="Mentions légales" rel="home">
 					Mentions légales
 				</a>
 			</div><!-- #site-info -->
 
-			<!--<div id="site-generator">
+			<div id="site-generator">
 				<?php
 				/**
 				 * Fires before the Twenty Ten credits in the footer.
@@ -41,8 +41,7 @@
 				 */
 				do_action( 'twentyten_credits' ); ?>
 				<a href="<?php echo esc_url( __( 'http://wordpress.org/', 'twentyten' ) ); ?>" title="<?php esc_attr_e( 'Semantic Personal Publishing Platform', 'twentyten' ); ?>"><?php printf( __( 'Proudly powered by %s.', 'twentyten' ), 'WordPress' ); ?></a>
-				
-			</div>--><!-- #site-generator -->
+			</div><!-- #site-generator -->
 			<span class="copyright_esgi"><?php bloginfo('name'); ?> © COPYRIGHT 2015 - WEBSITE BY ESGI</span>
 		</div><!-- #colophon -->
 	</div><!-- #footer -->
