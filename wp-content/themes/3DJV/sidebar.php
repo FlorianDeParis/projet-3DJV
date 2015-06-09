@@ -42,24 +42,6 @@
 
 			<?php endif; // end primary widget area ?>
 				</ul>
-				<?php if ( is_user_logged_in() ) {
-
-					global $current_user;
-
-					echo '
-						<div class="menu_utilisateur">
-							<h2><a href="wp-admin/profile.php">'.$current_user->user_login.'</a></h2>
-							<a>MES ACTUS</a>
-							<a>MES TP</a>
-							<a>MES TUTOS</a>
-							<a>MES MEDIAS</a>
-						</div>
-					';
-				} else {
-					echo '
-						<div>Welcome, visitor!</div>
-					';
-				}?>
 		</div><!-- #primary .widget-area -->
 
 <?php

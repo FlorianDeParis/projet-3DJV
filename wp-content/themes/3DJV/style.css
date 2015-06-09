@@ -1258,7 +1258,7 @@ h3#reply-title {
 /* Main sidebars */
 #main .widget-area ul {
 	margin-left: 0;
-	padding: 0 20px 0 0;
+	padding: 0 0px 0 0;
 }
 #main .widget-area ul ul {
 	border: none;
@@ -1335,9 +1335,15 @@ img#wpstats {
 
 /* MENU DE L'UTILISATEUR*/
 
-.menu_utilisateur{width: 100%; background: #343434; color: white; font-family: 'Roboto', Arial; text-align: center;}
-	.menu_utilisateur h2{padding-top: 20px; padding-bottom: 20px; margin-bottom:0px; background: #252525; text-transform: uppercase;}
-	.menu_utilisateur a{display: block; padding-top: 15px; padding-bottom: 15px; font-size: 16px;}
+#menu-menu-2{margin-left: 0px!important; margin-right: 0px!important;}
+	.menu_utilisateur_header{width: 100%; background: #252525; color: white; font-family: 'Roboto', Arial; text-align: center; list-style-type: none;}
+	.menu_utilisateur{width: 100%; background: #343434; color: white; font-family: 'Roboto', Arial; text-align: center; list-style-type: none; border-bottom: solid 1px #252525;}
+		.menu_utilisateur h2{padding-top: 20px; padding-bottom: 20px; margin-bottom:0px; background: #252525; text-transform: uppercase;}
+		.menu_utilisateur a, .menu_utilisateur_header a{display: block; padding-top: 15px; padding-bottom: 15px; font-size: 16px; text-decoration: none!important;}
+		.menu_utilisateur a:hover{background: #787878!important; color: white; text-decoration: none;}
+		.menu_utilisateur_header a:hover{background: #343434!important; color: white; text-decoration: none;}
+		
+
 
 /* =Mobile Safari ( iPad, iPhone and iPod Touch )
 -------------------------------------------------------------- */

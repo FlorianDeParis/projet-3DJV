@@ -43,7 +43,7 @@
 				<a href="<?php echo esc_url( __( 'http://wordpress.org/', 'twentyten' ) ); ?>" title="<?php esc_attr_e( 'Semantic Personal Publishing Platform', 'twentyten' ); ?>"><?php printf( __( 'Proudly powered by %s.', 'twentyten' ), 'WordPress' ); ?></a>
 				
 			</div>--><!-- #site-generator -->
-			<span class="copyright_esgi"><a href="http://www.esgi.fr"><?php bloginfo('name'); ?> © COPYRIGHT 2015 - WEBSITE BY ESGI</a></span>
+			<span class="copyright_esgi"><?php bloginfo('name'); ?> © COPYRIGHT 2015 - WEBSITE BY ESGI</span>
 		</div><!-- #colophon -->
 	</div><!-- #footer -->
 

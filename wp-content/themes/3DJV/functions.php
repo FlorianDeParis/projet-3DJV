@@ -595,7 +595,7 @@ function twentyten_get_gallery_images() {
 }
 
 
-// Personnalisation du logo de la page de connexion back-office
+// Personnalisation du logo de la page de connexion back-office - Ajouté par Florian
 
 
 function childtheme_custom_login() {
@@ -604,7 +604,7 @@ function childtheme_custom_login() {
 
 add_action('login_head', 'childtheme_custom_login');
 
-// Ajout de fichiers Javascript personnalisés
+// Ajout de fichiers Javascript personnalisés - Ajouté par Florian
 
 function custom_js(){
 
@@ -615,3 +615,177 @@ function custom_js(){
 }
  
 add_action( 'wp_head', 'custom_js' );
+
+// Ajout d'une entrée pour le menu de pernnalisation
+
+add_action( 'customize_register', 'bargeo_customize_register' );
+
+
+// Méthode de personnalisation du site via le Back-End - ajouté par Florian
+if(is_admin()) 
+{
+	wp_enqueue_style('wp-color-picker');
+	wp_enqueue_script('costumadminjs',  get_template_directory_uri().'/js/admin.js');
+	wp_enqueue_script( 'wp-color-picker');
+
+
+}
+register_nav_menus(array( 'header' => 'Menu principal (header)'));
+///ajout bdd option 	
+add_action( 'admin_init', 'jv_options' );
+
+function jv_options( )
+{
+	register_setting( 'my_theme', 'background_color' ); // couleur de fond sidebar
+	register_setting( 'my_theme', 'text_color' );       // couleur du texte sidebar
+	register_setting( 'my_theme', 'image_background');
+	register_setting( 'my_theme', 'image_logo');
+	register_setting( 'my_theme', 'image_banner');
+	register_setting( 'my_theme', 'background_menu'); // couleur background de menu
+}
+// la fonction myThemeAdminMenu( ) sera exécutée
+// quand WordPress mettra en place le menu d'admin
+/// ajout dans la bar admin wordpress
+add_action( 'admin_menu', 'jv_AdminMenu' );
+
+function jv_AdminMenu( )
+{
+	//add_submenu_page( 'themes.php', 'Options thème', 'Options thème', 'administrator', 'Options thème', 'VueOptionPage' );
+	add_menu_page(
+		'Options thème', // le titre de la page
+		'Options thème',            // le nom de la page dans le menu d'admin
+		'administrator',        // le rôle d'utilisateur requis pour voir cette page
+		'Options thème',        // un identifiant unique de la page
+		'VueOptionPage',   // le nom d'une fonction qui affichera la page
+		'',
+		'60,6'
+	);
+	
+    /*add_theme_page( 'Options thème', 'Options thème', 
+    'administrator', 'Options thème', 
+    'VueOptionPage' );*/
+
+
+}
+//// page admin
+function VueOptionPage( )
+{
+	wp_enqueue_media();
+	echo '<div class="wrap">
+		<h2>Options de mon thème</h2>
+
+		<form method="post" action="options.php">';
+			
+				// cette fonction ajoute plusieurs champs cachés au formulaire
+				// pour vous faciliter le travail.
+				// elle prend en paramètre le nom du groupe d'options
+				// que nous avons défini plus haut.
+
+	settings_fields( 'my_theme' );
+			
+
+	echo'
+	<table class="form-table">
+		
+		<tr valign="top">
+			<th scope="row"><label for="image_background">Image background</label></th>
+			
+				<td>	<image id="image_image_background" src="'.get_option("image_background").'" width="100"></td>
+				<td>	<input type ="text" id="input_image_background" name="image_background" value="'.get_option('image_background').'" size="75"></td>
+				<td>	<a href="#" id="image_background" class="button customaddmedia">Choisir une image</a></td>
+		</tr>
+		<tr valign="top">
+			<th scope="row"><label for="image_logo">Image logo</label></th>
+			
+				<td>	<image id="image_image_logo" src="'.get_option("image_logo").'" width="100"> </td>
+				<td>	<input type ="text" id="input_image_logo" name="image_logo" value="'.get_option('image_logo').'" size="75"></td>
+				<td>	<a href="#" id="image_logo" class="button customaddmedia">Choisir une image</a></td>
+		</tr>
+		<tr valign="top">
+			<th scope="row"><label for="image_logo">Image Banner</label></th>
+			
+				<td>	<image id="image_image_banner" src="'.get_option("image_banner").'" width="100"> </td>
+				<td>	<input type ="text" id="input_image_banner" name="image_banner" value="'.get_option('image_banner').'" size="75"></td>
+				<td>	<a href="#" id="image_banner" class="button customaddmedia">Choisir une image</a></td>
+		</tr>
+		<tr valign="top">
+			<th scope="row"><label for="background_color">Couleur de fond de la zone widget</label></th>
+			<td><input type="text" id="background_color" name="background_color" class="background_color" value="'.get_option( 'background_color' ).'" /></td>
+		</tr>
+
+		<tr valign="top">
+			<th scope="row"><label for="text_color">Couleur du texte de la zone widget</label></th>
+			<td><input type="text" id="text_color" name="text_color" class="text_color" value="'.get_option( 'text_color' ).'" /></td>
+		</tr>
+		<tr valign="top">
+			<th scope="row"><label for="background_menu">Couleur de fond du menu</label></th>
+			<td><input type="text" id="background_menu" name="background_menu" class="background_menu" value="'.get_option( 'background_menu' ).'" /></td>
+		</tr>
+	</table>
+
+			<p class="submit">
+				<input type="submit" class="button-primary" value="Mettre à jour" />
+			</p>
+		</form>
+	</div>';
+	
+	
+}
+///// ajout au head
+
+add_action( 'wp_head', 'myThemeCss' );
+
+function myThemeCss( )
+{
+	// on crée un bloc style qui appliquera nos couleurs à l'élément body
+	if (get_option('image_logo') != '') {
+        echo '<link rel="shortcut icon" href="' .get_option('image_logo'). '"/>' . "\n";
+    } else {
+        ?>
+        <link rel="shortcut icon" href="<?php echo get_stylesheet_directory_uri() ?>/images/favicon.ico" />
+        <?php
+    }
+?>
+	<?php if ((get_option('image_background') != '') || (get_option('background_color')!= '') ||(get_option('image_banner') != '')|| (get_option('background_color')!= '')|| (get_option('text_color') != '')|| (get_option('background_menu') != '')) { ?>		
+	<style type="text/css">
+		<?php if (get_option('image_background') != ''){ ?>
+		body, .banner {
+			background: inherit;
+			
+			background-image: url(<?php echo get_option( 'image_background');?>);
+			
+		}
+		.body{
+			background-color: white;
+		}
+		<?php } 
+		
+		 if (get_option('image_banner') != ''){ ?>
+		#banner-text{
+			background-image: url(<?php echo get_option( 'image_banner');?>);
+		}
+		<?php } 
+		if (get_option('background_color') != ''){ ///// poiur la side bar ?>
+			.side{border: 1px solid green; width: 29.4%; background-color:<?php echo get_option('background_color'); ?>;}
+				.login-box{background-color: <?php echo get_option('background_color'); ?>;}
+			<?php } 
+		if (get_option('text_color') != ''){ ?>
+				.welcome_user{color: <?php echo get_option( 'text_color' ); ?>;}
+				    .welcome_user a{text-decoration:none; font-weight: bold; color: <?php echo get_option( 'text_color' ); ?>;}
+
+				.disconnect_user{text-decoration:none; color: <?php echo get_option( 'text_color' ); ?>;}
+		<?php } 
+				if (get_option('background_menu') != ''){ ?>
+				
+					#menu{margin: 0 auto 0 auto; height:30px; width: 976px; background-color: <?php echo get_option( 'background_menu' ); ?>; border: 1px solid <?php echo get_option( 'background_menu' ); ?>; !important}
+					#menu ul{list-style:none; margin:0; padding:0; font:bold 12pt Arial, Helvetica, sans-serif;}
+					#menu li{position:relative; display:block; float:left; margin-right:1px;}
+					#menu a{display:block; background-color: <?php echo get_option( 'background_menu' ); ?>; color:#eee; text-decoration:none; padding:0 10px; line-height:31px;}
+					
+		<?php } ?>
+	</style>
+	<?php } ?>
+<?php
+}
+
+
