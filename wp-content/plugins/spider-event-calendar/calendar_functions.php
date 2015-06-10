@@ -613,7 +613,7 @@ function apply_spider_event($calendar_id, $id) {
   }
   if ($save !== FALSE) {
     ?>
-    <div class="updated"><p><strong>Item Saved.</strong></p></div>
+    <div class="updated"><p><strong>Evénement sauvegardé.</strong></p></div>
     <?php
     return TRUE;
   }

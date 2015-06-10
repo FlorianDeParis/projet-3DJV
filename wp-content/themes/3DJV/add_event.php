@@ -21,8 +21,24 @@ get_header();
 
 include_once dirname(__FILE__).'/../../plugins/spider-event-calendar/calendar_functions.php';
 
+function testField ($field, $errors, $message) {
+    if (empty($field)) {
+        $errors[] = $message;
+    }
+    
+    return $errors;
+}
+
 if (isset($_POST['save_event'])) {
-    apply_spider_event($_POST['category'], -1);
+    $errors = [];
+    
+    $errors = testField($_POST['title'], $errors, "Veuillez définir le titre");
+    $errors = testField($_POST['category'], $errors, "Veuillez définir la catégorie");
+    $errors = testField($_POST['date'], $errors, "Veuillez définir la date");
+    
+    if (count($errors) <= 0) {
+        apply_spider_event($_POST['category'], -1);
+    }
 }
 
 
@@ -30,13 +46,28 @@ if (isset($_POST['save_event'])) {
 
 		<div id="container">
 			<div id="content" role="main" style="background-color: white;">
+                            <?php
+                                if (count($errors) > 0) {
+                            ?>
+                                <ul class="errors">
+                                    <?php
+                                        foreach ($errors as $error) {
+                                    ?>
+                                        <li><?php echo $error; ?></li><br>
+                                    <?php
+                                        }
+                                    ?>
+                                </ul>
+                            <?php
+                                }
+                            ?>
                             <form action="#" method="post" id="adminForm" name="adminForm">
                                 <table width="95%">
                                   <tbody><tr>
                                     <td style="width:45%">
                                       <div style="width:95%">
                                         <fieldset class="adminform">
-                                          <legend>Dérails de l'événement</legend>
+                                          <legend>Détails de l'événement</legend>
                                           <table class="admintable">
                                             <tbody><tr>
                                               <td class="key"><label for="title">Titre: </label></td>
@@ -73,15 +104,6 @@ if (isset($_POST['save_event'])) {
                                               <td class="key"><label for="poststuff">Note: </label></td>
                                               <td>
                                                 <?php wp_editor( "", "3djv_editor_id", $settings = array() ); ?>
-                                              </td>
-                                            </tr>
-                                            <tr>
-                                              <td class="key"><label for="published1">Publié: </label></td>
-                                              <td>
-                                                <input type="radio" name="published" id="published0" value="0" class="inputbox">
-                                                <label for="published0">No</label>
-                                                <input type="radio" name="published" id="published1" value="1" checked="checked" class="inputbox">
-                                                <label for="published1">Yes</label>
                                               </td>
                                             </tr>
                                           </tbody></table>
@@ -196,6 +218,7 @@ if (isset($_POST['save_event'])) {
                                     <input type="hidden" id="nonce_sp_cal" name="nonce_sp_cal" value="4978dd5fd7"><input type="hidden" name="_wp_http_referer" value="/projet-3DJV/wp-admin/admin.php?page=SpiderCalendar&amp;task=add_event&amp;calendar_id=2">    <input type="hidden" name="option" value="com_spidercalendar">
                                 <input type="hidden" name="task" value="">
                                 <input type="hidden" name="calendar" value="">
+                                <input type="hidden" name="published" value="0">
                             </form>
 			</div><!-- #content -->
 		</div><!-- #container -->
