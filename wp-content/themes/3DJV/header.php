@@ -59,7 +59,7 @@
 	<div id="header">
 		<div id="masthead">
 			<div class="banner_3djv">
-				<img class="logo_3djv" src="<?php bloginfo('template_directory'); ?>/images/logo.png">
+				<a href="<?php echo get_site_url(); ?>"><img class="logo_3djv" src="<?php bloginfo('template_directory'); ?>/images/logo.png"></a>
 				<div id="site-description"><?php bloginfo( 'description' ); ?></div>
 				<form action="<?php bloginfo('url'); ?>" method="get" accept-charset="utf-8" class="searchbar">						
 					<button type="submit"></button>

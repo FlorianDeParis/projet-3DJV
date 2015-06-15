@@ -73,6 +73,7 @@ a img {
 }
 
 .sprt{width: 10px; display: inline-block; background-color:#aaa; height: 3px; margin-left: 8px; margin-right: 8px;}
+.sprt2{width: 20px; height: 3px; text-align: center; display: block; margin: auto; background-color: #496FB1; margin-bottom: 25px;}
 .no_underline{text-decoration: none!important;}
 .no_hover:hover{color:#aaa!important;}
 
@@ -1343,6 +1344,22 @@ img#wpstats {
 		.menu_utilisateur a:hover{background: #787878!important; color: white; text-decoration: none;}
 		.menu_utilisateur_header a:hover{background: #343434!important; color: white; text-decoration: none;}
 		
+/* FORMULAIRE DE CONNEXION */ 
+
+	.login-desc, .insc-desc{text-align: center; padding: 20px; font-family: 'Roboto', Arial; color: #496FB1; font-size: 21px;}
+
+.login-form{text-align: center; font-family: 'Roboto', Arial;}
+	.login-form p{font-size: 15px; text-transform: uppercase;}
+		.login-form p label{display: block;  margin-bottom: 5px;}
+		.login-form p input[type="text"], .login-form p input[type="password"], .login-form p input[type="submit"]{background-color: #252525; border: solid 1px #787878; color: #496FB1; padding: 2px; font-family: 'Roboto', Arial;}
+		.login-form p input[type="submit"]{padding: 8px; color: #496FB1; font-family: 'Roboto', Arial; text-transform: uppercase;}
+		.insc_link{text-transform: uppercase; color: #666!important;}
+
+#simplr-form{border: none!important;}
+	#simplr-form form{width: 50%;}
+		#simplr-form label{margin-bottom: 5px; font-family: 'Roboto', Arial; text-transform: uppercase; color: #666!important; font-style: normal!important;}
+		#simplr-form input[type="text"], #simplr-form input[type="password"]{background-color: #252525!important; border: solid 1px #787878!important; color: #496FB1!important; padding: 2px!important; font-family: 'Roboto', Arial!important; border-radius: 0px!important; box-shadow: none!important;}
+		#simplr-form input[type="text"]{padding: 8px!important; color: #496FB1!important; font-family: 'Roboto', Arial!important; text-transform: uppercase!important; background-color: #252525!important; background-image: none!important;}
 
 
 /* =Mobile Safari ( iPad, iPhone and iPod Touch )
