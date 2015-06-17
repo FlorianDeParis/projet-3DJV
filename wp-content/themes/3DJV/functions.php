@@ -37,7 +37,6 @@
  * @subpackage Twenty_Ten
  * @since Twenty Ten 1.0
  */
-
 /*
  * Set the content width based on the theme's design and stylesheet.
  *
@@ -45,15 +44,12 @@
  * is designed for, generally via the style.css stylesheet.
  */
  
-
  
  
 if ( ! isset( $content_width ) )
 	$content_width = 640;
-
 /* Tell WordPress to run twentyten_setup() when the 'after_setup_theme' hook is run. */
 add_action( 'after_setup_theme', 'twentyten_setup' );
-
 if ( ! function_exists( 'twentyten_setup' ) ):
 /**
  * Set up theme defaults and registers support for various WordPress features.
@@ -75,38 +71,29 @@ if ( ! function_exists( 'twentyten_setup' ) ):
  * @since Twenty Ten 1.0
  */
 function twentyten_setup() {
-
 	// This theme styles the visual editor with editor-style.css to match the theme style.
 	add_editor_style();
-
 	// Post Format support. You can also use the legacy "gallery" or "asides" (note the plural) categories.
 	add_theme_support( 'post-formats', array( 'aside', 'gallery' ) );
-
 	// This theme uses post thumbnails
 	add_theme_support( 'post-thumbnails' );
-
 	// Add default posts and comments RSS feed links to head
 	add_theme_support( 'automatic-feed-links' );
-
 	/*
 	 * Make theme available for translation.
 	 * Translations can be filed in the /languages/ directory
 	 */
 	load_theme_textdomain( 'twentyten', get_template_directory() . '/languages' );
-
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
 		'primary' => __( 'Primary Navigation', 'twentyten' ),
 	) );
-
 	// This theme allows users to set a custom background.
 	add_theme_support( 'custom-background', array(
 		// Let WordPress know what our default background color is.
 		'default-color' => 'f1f1f1',
 	) );
-
 	// The custom header business starts here.
-
 	$custom_header_support = array(
 		/*
 		 * The default image to use.
@@ -137,9 +124,7 @@ function twentyten_setup() {
 		// Callback for styling the header preview in the admin.
 		'admin-head-callback' => 'twentyten_admin_header_style',
 	);
-
 	add_theme_support( 'custom-header', $custom_header_support );
-
 	if ( ! function_exists( 'get_custom_header' ) ) {
 		// This is all for compatibility with versions of WordPress prior to 3.4.
 		define( 'HEADER_TEXTCOLOR', '' );
@@ -150,16 +135,13 @@ function twentyten_setup() {
 		add_custom_image_header( '', $custom_header_support['admin-head-callback'] );
 		add_custom_background();
 	}
-
 	/*
 	 * We'll be using post thumbnails for custom header images on posts and pages.
 	 * We want them to be 940 pixels wide by 198 pixels tall.
 	 * Larger images will be auto-cropped to fit, smaller ones will be ignored. See header.php.
 	 */
 	set_post_thumbnail_size( $custom_header_support['width'], $custom_header_support['height'], true );
-
 	// ... and thus ends the custom header business.
-
 	// Default custom headers packaged with the theme. %s is a placeholder for the theme template directory URI.
 	register_default_headers( array(
 		'berries' => array(
@@ -213,7 +195,6 @@ function twentyten_setup() {
 	) );
 }
 endif;
-
 if ( ! function_exists( 'twentyten_admin_header_style' ) ) :
 /**
  * Style the header image displayed on the Appearance > Header admin panel.
@@ -238,7 +219,6 @@ function twentyten_admin_header_style() {
 <?php
 }
 endif;
-
 /**
  * Show a home link for our wp_nav_menu() fallback, wp_page_menu().
  *
@@ -255,7 +235,6 @@ function twentyten_page_menu_args( $args ) {
 	return $args;
 }
 add_filter( 'wp_page_menu_args', 'twentyten_page_menu_args' );
-
 /**
  * Set the post excerpt length to 40 characters.
  *
@@ -278,7 +257,6 @@ function twentyten_excerpt_length( $length ) {
 	return 40;
 }
 add_filter( 'excerpt_length', 'twentyten_excerpt_length' );
-
 if ( ! function_exists( 'twentyten_continue_reading_link' ) ) :
 /**
  * Return a "Continue Reading" link for excerpts.
@@ -291,7 +269,6 @@ function twentyten_continue_reading_link() {
 	return ' <a href="'. get_permalink() . '">' . __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'twentyten' ) . '</a>';
 }
 endif;
-
 /**
  * Replace "[...]" with an ellipsis and twentyten_continue_reading_link().
  *
@@ -312,7 +289,6 @@ function twentyten_auto_excerpt_more( $more ) {
 	return $more;
 }
 add_filter( 'excerpt_more', 'twentyten_auto_excerpt_more' );
-
 /**
  * Add a pretty "Continue Reading" link to custom post excerpts.
  *
@@ -331,7 +307,6 @@ function twentyten_custom_excerpt_more( $output ) {
 	return $output;
 }
 add_filter( 'get_the_excerpt', 'twentyten_custom_excerpt_more' );
-
 /**
  * Remove inline styles printed when the gallery shortcode is used.
  *
@@ -341,13 +316,6 @@ add_filter( 'get_the_excerpt', 'twentyten_custom_excerpt_more' );
  * @since Twenty Ten 1.2
  */
 add_filter( 'use_default_gallery_style', '__return_false' );
-
-
-
-
-
-
-
  if(!function_exists( 'add_login_logout_menu')) 
 {
     function add_login_logout_menu($items, $args)
@@ -357,7 +325,6 @@ add_filter( 'use_default_gallery_style', '__return_false' );
             $link = '<a href="' . wp_logout_url('/projet-3DJV/') . '" title="Logout">' . __( 'Se deconnecter' ) . '</a>';
         else  
             $link = '<a href="' . '/projet-3DJV/?page_id=87' . '" title="Login">' . __( 'Se connecter' ) . '</a>';
-
         return $items .= '<li id="login_logout_menu-link" class="menu-item menu-type-link">'. $link . '</li>';
     }
 }
@@ -373,7 +340,6 @@ function redirect_login_page() {
     }
 }
 add_action('init','redirect_login_page');
-
 function login_failed() {
     $login_page  = home_url( '?page_id=87/' );
     wp_redirect( $login_page . '?login=failed' );
@@ -389,18 +355,13 @@ function verify_username_password( $user, $username, $password ) {
     }
 }
 add_filter( 'authenticate', 'verify_username_password', 1, 3);
-
 function logout_page() {
     $login_page  = home_url( '' );
     wp_redirect( $login_page . "?login=false" );
     exit;
 }
 add_action('wp_logout','logout_page');
-
-
-
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
-
 /**
  * Deprecated way to remove inline styles printed when the gallery shortcode is used.
  *
@@ -418,12 +379,7 @@ function twentyten_remove_gallery_css( $css ) {
 // Backwards compatibility with WordPress 3.0.
 if ( version_compare( $GLOBALS['wp_version'], '3.1', '<' ) )
 	add_filter( 'gallery_style', 'twentyten_remove_gallery_css' );
-
 if ( ! function_exists( 'twentyten_comment' ) ) :
-
-
-
-
 /**
  * Template for comments and pingbacks.
  *
@@ -480,7 +436,6 @@ function twentyten_comment( $comment, $args, $depth ) {
 	endswitch;
 }
 endif;
-
 /**
  * Register widgetized areas, including two sidebars and four widget-ready columns in the footer.
  *
@@ -504,7 +459,6 @@ function twentyten_widgets_init() {
 		'before_title' => '<h3 class="widget-title">',
 		'after_title' => '</h3>',
 	) );
-
 	// Area 2, located below the Primary Widget Area in the sidebar. Empty by default.
 	register_sidebar( array(
 		'name' => __( 'Secondary Widget Area', 'twentyten' ),
@@ -515,7 +469,6 @@ function twentyten_widgets_init() {
 		'before_title' => '<h3 class="widget-title">',
 		'after_title' => '</h3>',
 	) );
-
 	// Area 3, located in the footer. Empty by default.
 	register_sidebar( array(
 		'name' => __( 'First Footer Widget Area', 'twentyten' ),
@@ -526,7 +479,6 @@ function twentyten_widgets_init() {
 		'before_title' => '<h3 class="widget-title">',
 		'after_title' => '</h3>',
 	) );
-
 	// Area 4, located in the footer. Empty by default.
 	register_sidebar( array(
 		'name' => __( 'Second Footer Widget Area', 'twentyten' ),
@@ -537,7 +489,6 @@ function twentyten_widgets_init() {
 		'before_title' => '<h3 class="widget-title">',
 		'after_title' => '</h3>',
 	) );
-
 	// Area 5, located in the footer. Empty by default.
 	register_sidebar( array(
 		'name' => __( 'Third Footer Widget Area', 'twentyten' ),
@@ -548,7 +499,6 @@ function twentyten_widgets_init() {
 		'before_title' => '<h3 class="widget-title">',
 		'after_title' => '</h3>',
 	) );
-
 	// Area 6, located in the footer. Empty by default.
 	register_sidebar( array(
 		'name' => __( 'Fourth Footer Widget Area', 'twentyten' ),
@@ -562,7 +512,6 @@ function twentyten_widgets_init() {
 }
 /** Register sidebars by running twentyten_widgets_init() on the widgets_init hook. */
 add_action( 'widgets_init', 'twentyten_widgets_init' );
-
 /**
  * Remove the default styles that are packaged with the Recent Comments widget.
  *
@@ -579,7 +528,6 @@ function twentyten_remove_recent_comments_style() {
 	add_filter( 'show_recent_comments_widget_style', '__return_false' );
 }
 add_action( 'widgets_init', 'twentyten_remove_recent_comments_style' );
-
 if ( ! function_exists( 'twentyten_posted_on' ) ) :
 /**
  * Print HTML with meta information for the current post-date/time and author.
@@ -602,7 +550,6 @@ function twentyten_posted_on() {
 	);
 }
 endif;
-
 if ( ! function_exists( 'twentyten_posted_in' ) ) :
 /**
  * Print HTML with meta information for the current post (category, tags and permalink).
@@ -629,7 +576,6 @@ function twentyten_posted_in() {
 	);
 }
 endif;
-
 /**
  * Retrieve the IDs for images in a gallery.
  *
@@ -642,7 +588,6 @@ endif;
  */
 function twentyten_get_gallery_images() {
 	$images = array();
-
 	if ( function_exists( 'get_post_galleries' ) ) {
 		$galleries = get_post_galleries( get_the_ID(), false );
 		if ( isset( $galleries[0]['ids'] ) )
@@ -654,7 +599,6 @@ function twentyten_get_gallery_images() {
 		if ( isset( $atts['ids'] ) )
 			$images = explode( ',', $atts['ids'] );
 	}
-
 	if ( ! $images ) {
 		$images = get_posts( array(
 			'fields'         => 'ids',
@@ -666,27 +610,15 @@ function twentyten_get_gallery_images() {
 			'post_type'      => 'attachment',
 		) );
 	}
-
 	return $images;
 }
-
-
-
-// Personnalisation du logo de la page de connexion back-office - AjoutÃ© par Florian
-
-
-
+// Personnalisation du logo de la page de connexion back-office - Ajouté par Florian
 function childtheme_custom_login() {
 	echo '<link rel="stylesheet" type="text/css" href="' . get_bloginfo('stylesheet_directory') . '/login.css" />';
 }
-
 add_action('login_head', 'childtheme_custom_login');
-
-
-// Ajout de fichiers Javascript personnalisÃ©s - AjoutÃ© par Florian
-
+// Ajout de fichiers Javascript personnalisés - Ajouté par Florian
 function custom_js(){
-
 		wp_enqueue_script( 'syncbox',
 		get_template_directory_uri() . '/js/syncbox.js',
 		array() );
@@ -695,24 +627,16 @@ function custom_js(){
  
 add_action( 'wp_head', 'custom_js' );
 
-// Ajout d'une entrÃ©e pour le menu de personnalisation
-
-add_action( 'customize_register', 'bargeo_customize_register' );
-
-
-// MÃ©thode de personnalisation du site via le Back-End - ajoutÃ© par Florian
+// Méthode de personnalisation du site via le Back-End - ajouté par Florian
 if(is_admin()) 
 {
 	wp_enqueue_style('wp-color-picker');
 	wp_enqueue_script('costumadminjs',  get_template_directory_uri().'/js/admin.js');
 	wp_enqueue_script( 'wp-color-picker');
-
-
 }
 register_nav_menus(array( 'header' => 'Menu principal (header)'));
 ///ajout bdd option 	
 add_action( 'admin_init', 'jv_options' );
-
 function jv_options( )
 {
 	register_setting( 'my_theme', 'background_color' ); // couleur de fond sidebar
@@ -724,50 +648,45 @@ function jv_options( )
 	register_setting( 'my_theme', 'entete_menu');
 	register_setting( 'my_theme', 'back_boxes');
 }
-// la fonction myThemeAdminMenu( ) sera exÃ©cutÃ©e
+// la fonction myThemeAdminMenu( ) sera exécutée
 // quand WordPress mettra en place le menu d'admin
 /// ajout dans la bar admin wordpress
 add_action( 'admin_menu', 'jv_AdminMenu' );
-
 function jv_AdminMenu( )
 {
-	//add_submenu_page( 'themes.php', 'Options thÃ¨me', 'Options thÃ¨me', 'administrator', 'Options thÃ¨me', 'VueOptionPage' );
+	//add_submenu_page( 'themes.php', 'Options thème', 'Options thème', 'administrator', 'Options thème', 'VueOptionPage' );
 	add_menu_page(
-		'Options thÃ¨me', // le titre de la page
-		'Options thÃ¨me',            // le nom de la page dans le menu d'admin
-		'administrator',        // le rÃ´le d'utilisateur requis pour voir cette page
-		'Options thÃ¨me',        // un identifiant unique de la page
+		'Options thème', // le titre de la page
+		'Options thème',            // le nom de la page dans le menu d'admin
+		'administrator',        // le rôle d'utilisateur requis pour voir cette page
+		'Options thème',        // un identifiant unique de la page
 		'VueOptionPage',   // le nom d'une fonction qui affichera la page
 		'',
 		'60,6'
 	);
 	
-    /*add_theme_page( 'Options thÃ¨me', 'Options thÃ¨me', 
-    'administrator', 'Options thÃ¨me', 
+    /*add_theme_page( 'Options thème', 'Options thème', 
+    'administrator', 'Options thème', 
     'VueOptionPage' );*/
-
-
 }
 //// page admin
 function VueOptionPage( )
 {
 	wp_enqueue_media();
 	echo '<div class="wrap">
-		<h2>ParamÃ©trage du thÃ¨me</h2>
-
+		<h2>Paramétrage du thème</h2>
 		<form method="post" action="options.php">';
 			
-				// cette fonction ajoute plusieurs champs cachÃ©s au formulaire
+				// cette fonction ajoute plusieurs champs cachés au formulaire
 				// pour vous faciliter le travail.
-				// elle prend en paramÃ¨tre le nom du groupe d'options
-				// que nous avons dÃ©fini plus haut.
-
+				// elle prend en paramètre le nom du groupe d'options
+				// que nous avons défini plus haut.
 	settings_fields( 'my_theme' );
 			echo'
 			<table class="form-table">
 				<tr valign="top">
-					<th scope="row"><label for="image_background">Image du fond d\'Ã©cran</label></th>
-						<!-- Personnalisation du fond d\'Ã©cran -->
+					<th scope="row"><label for="image_background">Image du fond d\'écran</label></th>
+						<!-- Personnalisation du fond d\'écran -->
 						<td><image id="image_image_background" src="'.get_option("image_background").'" width="100"></td>
 						<td><input type ="text" id="input_image_background" name="image_background" value="'.get_option('image_background').'" size="75"></td>
 						<td><a href="#" id="image_background" class="button customaddmedia">Choisir une image</a></td>
@@ -780,7 +699,7 @@ function VueOptionPage( )
 						<td><a href="#" id="image_logo" class="button customaddmedia">Choisir une image</a></td>
 				</tr>
 				<tr valign="top">
-					<th scope="row"><label for="image_logo">Image de la banniÃ¨re</label></th>
+					<th scope="row"><label for="image_logo">Image de la bannière</label></th>
 					
 						<td><image id="image_image_banner" src="'.get_option("image_banner").'" width="100"> </td>
 						<td><input type ="text" id="input_image_banner" name="image_banner" value="'.get_option('image_banner').'" size="75"></td>
@@ -790,7 +709,6 @@ function VueOptionPage( )
 					<th scope="row"><label for="background_color">Couleur de fond de la zone widget</label></th>
 					<td><input type="text" id="background_color" name="background_color" class="background_color" value="'.get_option( 'background_color' ).'" /></td>
 				</tr>
-
 				<tr valign="top">
 					<th scope="row"><label for="text_color">Couleur du texte de la zone widget</label></th>
 					<td><input type="text" id="text_color" name="text_color" class="text_color" value="'.get_option( 'text_color' ).'" /></td>
@@ -800,7 +718,7 @@ function VueOptionPage( )
 					<td><input type="text" id="background_menu" name="background_menu" class="background_menu" value="'.get_option( 'background_menu' ).'" /></td>
 				</tr>
 				<tr valign="top">
-					<th scope="row"><label for="entete_menu">Couleur de fond des en-tÃªtes de menu</label></th>
+					<th scope="row"><label for="entete_menu">Couleur de fond des en-têtes de menu</label></th>
 					<td><input type="text" id="entete_menu" name="entete_menu" class="entete_menu" value="'.get_option( 'entete_menu' ).'" /></td>
 				</tr>
 				<tr valign="top">
@@ -817,12 +735,10 @@ function VueOptionPage( )
 	
 }
 ///// ajout au head
-
 add_action( 'wp_head', 'myThemeCss' );
-
 function myThemeCss( )
 {
-	// on crÃ©e un bloc style qui appliquera nos couleurs Ã  l'Ã©lÃ©ment body
+	// on crée un bloc style qui appliquera nos couleurs à l'élément body
 	if (get_option('image_logo') != '') {
         echo '<link rel="shortcut icon" href="' .get_option('image_logo'). '"/>' . "\n";
     } 
@@ -854,16 +770,13 @@ function myThemeCss( )
 			if (get_option('image_banner') != ''){ ?>
 				#banner-text{background-image: url(<?php echo get_option( 'image_banner');?>);}
 			<?php } 
-
 			if (get_option('background_color') != ''){ ///// pour la side bar ?>
 				.side{border: 1px solid green; width: 29.4%; background-color:<?php echo get_option('background_color'); ?>;}
 					.login-box{background-color: <?php echo get_option('background_color'); ?>;}
 				<?php } 
-
 			if (get_option('text_color') != ''){ ?>
 				.welcome_user{color: <?php echo get_option( 'text_color' ); ?>;}
 				    .welcome_user a{text-decoration:none; font-weight: bold; color: <?php echo get_option( 'text_color' ); ?>;}
-
 				.disconnect_user{text-decoration:none; color: <?php echo get_option( 'text_color' ); ?>;}
 			<?php } 
 			
@@ -871,7 +784,6 @@ function myThemeCss( )
 				#access{background-color: <?php echo get_option( 'background_menu' ); ?> !important;}
 				
 			<?php } 
-
 			if (get_option('entete_menu') != ''){ ?>
 				.main-box-header, .menu_utilisateur_header{background-color: <?php echo get_option( 'entete_menu' ); ?>;}
 			<?php } 
@@ -884,11 +796,8 @@ function myThemeCss( )
 				#container #main-box-4,
 				.menu_utilisateur{background-color: <?php echo get_option( 'back_boxes' ); ?>;}
 			<?php } 
-
 			?>
 		</style>
 	<?php } ?>
 <?php
 }
-
-
