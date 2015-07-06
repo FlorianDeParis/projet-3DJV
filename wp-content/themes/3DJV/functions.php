@@ -697,7 +697,7 @@ add_action( 'wp_head', 'custom_js' );
 
 // Ajout d'une entrée pour le menu de personnalisation
 
-add_action( 'customize_register', 'bargeo_customize_register' );
+//add_action( 'customize_register', 'bargeo_customize_register' );
 
 
 // Méthode de personnalisation du site via le Back-End - ajouté par Florian
