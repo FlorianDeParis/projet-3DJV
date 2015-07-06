@@ -612,12 +612,12 @@ function twentyten_get_gallery_images() {
 	}
 	return $images;
 }
-// Personnalisation du logo de la page de connexion back-office - Ajouté par Florian
+// Personnalisation du logo de la page de connexion back-office - Ajoutï¿½ par Florian
 function childtheme_custom_login() {
 	echo '<link rel="stylesheet" type="text/css" href="' . get_bloginfo('stylesheet_directory') . '/login.css" />';
 }
 add_action('login_head', 'childtheme_custom_login');
-// Ajout de fichiers Javascript personnalisés - Ajouté par Florian
+// Ajout de fichiers Javascript personnalisï¿½s - Ajoutï¿½ par Florian
 function custom_js(){
 		wp_enqueue_script( 'syncbox',
 		get_template_directory_uri() . '/js/syncbox.js',
@@ -627,7 +627,7 @@ function custom_js(){
  
 add_action( 'wp_head', 'custom_js' );
 
-// Méthode de personnalisation du site via le Back-End - ajouté par Florian
+// Mï¿½thode de personnalisation du site via le Back-End - ajoutï¿½ par Florian
 
 if(is_admin()) 
 {
@@ -648,47 +648,60 @@ function jv_options( )
 	register_setting( 'my_theme', 'image_banner');
 	register_setting( 'my_theme', 'background_menu'); // couleur background de menu
 	register_setting( 'my_theme', 'entete_menu');
+	register_setting( 'my_theme', 'all_text_color');
+	register_setting( 'my_theme', 'text_police');
 	register_setting( 'my_theme', 'back_boxes');
+	
 }
-// la fonction myThemeAdminMenu( ) sera exécutée
+// la fonction myThemeAdminMenu( ) sera exï¿½cutï¿½e
 // quand WordPress mettra en place le menu d'admin
 /// ajout dans la bar admin wordpress
 add_action( 'admin_menu', 'jv_AdminMenu' );
 function jv_AdminMenu( )
 {
-	//add_submenu_page( 'themes.php', 'Options thème', 'Options thème', 'administrator', 'Options thème', 'VueOptionPage' );
+	//add_submenu_page( 'themes.php', 'Options thï¿½me', 'Options thï¿½me', 'administrator', 'Options thï¿½me', 'VueOptionPage' );
 	add_menu_page(
 		'Options theme', // le titre de la page
 		'Options theme',            // le nom de la page dans le menu d'admin
-		'administrator',        // le rôle d'utilisateur requis pour voir cette page
+		'administrator',        // le rï¿½le d'utilisateur requis pour voir cette page
 		'Options theme',        // un identifiant unique de la page
 		'VueOptionPage',   // le nom d'une fonction qui affichera la page
 		'',
 		'60,6'
 	);
 	
-    /*add_theme_page( 'Options thème', 'Options thème', 
-    'administrator', 'Options thème', 
+    /*add_theme_page( 'Options thï¿½me', 'Options thï¿½me', 
+    'administrator', 'Options thï¿½me', 
     'VueOptionPage' );*/
 }
 //// page admin
 function VueOptionPage( )
 {
+	$str_string="";
+	$array_font_family = array("Georgia","Palatino Linotype","Book Antiqua","Times New Roman","Arial","Helvetica","Arial Black","Impact","Lucida Sans Unicode","Tahoma","Verdana","Courier New","Lucida Console","initial");
+	$str_string .= '<option value="" >choisir une police d\' ecriture</option>';
+	for($cpt=0;$cpt<count($array_font_family);$cpt++)
+	{
+		if($array_font_family[$cpt]==get_option( 'text_police' ))
+			$str_string .=  '<option value="'.$array_font_family[$cpt].'" selected>'.$array_font_family[$cpt].'</option>';
+		else 
+			$str_string .=  '<option value="'.$array_font_family[$cpt].'" >'.$array_font_family[$cpt].'</option>';	
+	}
 	wp_enqueue_media();
 	echo '<div class="wrap">
 		<h2>Parametrage du theme</h2>
 		<form method="post" action="options.php">';
 			
-				// cette fonction ajoute plusieurs champs cachés au formulaire
+				// cette fonction ajoute plusieurs champs cachï¿½s au formulaire
 				// pour vous faciliter le travail.
-				// elle prend en paramètre le nom du groupe d'options
-				// que nous avons défini plus haut.
+				// elle prend en paramï¿½tre le nom du groupe d'options
+				// que nous avons dï¿½fini plus haut.
 	settings_fields( 'my_theme' );
 			echo'
 			<table class="form-table">
 				<tr valign="top">
 					<th scope="row"><label for="image_background">Image du fond d\'ecran</label></th>
-						<!-- Personnalisation du fond d\'écran -->
+						<!-- Personnalisation du fond d\'ï¿½cran -->
 						<td><image id="image_image_background" src="'.get_option("image_background").'" width="100"></td>
 						<td><input type ="text" id="input_image_background" name="image_background" value="'.get_option('image_background').'" size="75"></td>
 						<td><a href="#" id="image_background" class="button customaddmedia">Choisir une image</a></td>
@@ -734,6 +747,16 @@ function VueOptionPage( )
 					<th scope="row"><label for="back_boxes">Couleur de fond des cadres d\'informations</label></th>
 					<td><input type="text" id="back_boxes" name="back_boxes" class="back_boxes" value="'.get_option( 'back_boxes' ).'" /></td>
 				</tr>
+				<tr valign="top">
+					<th scope="row"><label for="all_texte_couleur">Couleur du texte </label></th>
+					<td><input type="text" id="all_text_color" name="all_text_color" class="all_text_color" value="'.get_option( 'all_text_color' ).'" /></td>
+				</tr>
+				<tr valign="top">
+					<th scope="row"><label for="text_police">Police d\'ecriture</label></th>
+					<td><select name="text_police">'.$str_string.'</select></td>
+				</tr>
+				
+
 			</table>
 			<p class="submit">
 				<input type="submit" class="button-primary" value="Appliquer les modifications" />
@@ -758,14 +781,14 @@ else
 add_action( 'wp_head', 'myThemeCss' );
 function myThemeCss( )
 {
-	// on crée un bloc style qui appliquera nos couleurs à l'élément body
+	// on crï¿½e un bloc style qui appliquera nos couleurs ï¿½ l'ï¿½lï¿½ment body
 	if (get_option('image_logo') != '') {
         echo '<link rel="shortcut icon" href="' .get_option('image_logo'). '"/>' . "\n";
     } 
     else { ?>
         <link rel="shortcut icon" href="<?php echo get_stylesheet_directory_uri() ?>/images/favicon.ico" />
     <?php }?>
-	
+	'')
 	<?php if ((get_option('image_background') != '')
 		|| (get_option('background_color')!= '') 
 		|| (get_option('image_banner') != '')
@@ -773,7 +796,9 @@ function myThemeCss( )
 		|| (get_option('text_color') != '')
 		|| (get_option('background_menu') != '')
 		|| (get_option('entete_menu') != '')
-		|| (get_option('back_boxes') != '')) 
+		|| (get_option('back_boxes') != '')
+		|| (get_option('all_text_color') != '')
+		|| (get_option('police_ecriture') != '')) 
 		{ ?>		
 		<style type="text/css">
 			<?php if (get_option('image_background') != ''){ ?>
@@ -810,7 +835,8 @@ function myThemeCss( )
 				.main-box-header, .menu_utilisateur_header{background-color: <?php echo get_option( 'entete_menu' ); ?>;}
 			<?php } 
 			
-			if (get_option('back_boxes') != ''){ ?>
+			if (get_option('back_boxes') != ''){ 
+			?>
 				#container .main-box-content,
 				#container #main-box-1, 
 				#container #main-box-2, 
@@ -818,8 +844,19 @@ function myThemeCss( )
 				#container #main-box-4,
 				.menu_utilisateur{background-color: <?php echo get_option( 'back_boxes' ); ?>;}
 			<?php } 
+			if (get_option('all_text_color') != ''){
+			?>
+				#container{color:<?php echo get_option( 'all_text_color' ); ?> !important ;}
+			<?php 
+			
+			}
+			if (get_option('text_police') != ''){
+			?>
+				#container{ font-family:<?php echo get_option( 'text_police' ); ?> !important;}
+			<?php
+			
+			}
 			?>
 		</style>
-	<?php } ?>
-<?php
+	<?php } 
 }
