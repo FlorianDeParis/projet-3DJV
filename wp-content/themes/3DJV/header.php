@@ -59,7 +59,18 @@
 	<div id="header">
 		<div id="masthead">
 			<div class="banner_3djv">
-				<a href="<?php echo get_site_url(); ?>"><img class="logo_3djv" src="<?php bloginfo('template_directory'); ?>/images/logo.png"></a>
+				<a href="<?php echo get_site_url(); ?>"><img class="logo_3djv" src=
+						<?php 
+							if (get_option('logo_site') == ''){
+								echo bloginfo('template_directory').'/images/logo.png';
+							}
+							else{echo get_option( 'logo_site');}
+							/*if(empty(get_option( 'logo_site')){ 
+								echo '"'.bloginfo('template_directory').'/images/logo.png"';
+							} 
+							else {
+								echo '"'.get_option( 'logo_site').'"';
+							}*/?> ></a>
 				<div id="site-description"><?php bloginfo( 'description' ); ?></div>
 				<form action="<?php bloginfo('url'); ?>" method="get" accept-charset="utf-8" class="searchbar">						
 					<button type="submit"></button>

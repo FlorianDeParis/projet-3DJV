@@ -83,5 +83,5 @@ if ( !defined('ABSPATH') )
 /** Sets up WordPress vars and included files. */
 require_once(ABSPATH . 'wp-settings.php');
 
-define('WP_SITEURL', "http://localhost/projet-3DJV");
-define('WP_HOME', "http://localhost/projet-3DJV");
+/*define('WP_SITEURL', "http://localhost/projet-3DJV");
+define('WP_HOME', "http://localhost/projet-3DJV");*/
