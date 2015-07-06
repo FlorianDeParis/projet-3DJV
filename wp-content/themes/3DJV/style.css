@@ -485,7 +485,7 @@ div.menu li {
 -------------------------------------------------------------- */
 
 #container{width: calc(100% - 240px);}
-#container h3{margin: 0px!important; text-transform: uppercase; text-decoration: none!important; color:#aaa!important; line-height: 65px!important; font-weight: bold; display: inline-block;}
+#container h3{margin: 0px!important; text-transform: uppercase; text-decoration: none!important; color:#aaa; line-height: 65px!important; font-weight: bold; display: inline-block;}
 	#container #main-box-1, #container #main-box-2, #container #main-box-3, #container #main-box-4{background-color: #343434; text-align: center; font-family:'Roboto', Arial;}
 	#container #main-box-1 ul, #container #main-box-2 ul, #container #main-box-3 ul, #container #main-box-4 ul{margin-left: 0px;}
 	#container #main-box-1 li, #container #main-box-2 li, #container #main-box-3 li, #container #main-box-4 li{list-style-type: none;}

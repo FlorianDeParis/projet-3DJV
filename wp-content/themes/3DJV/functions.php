@@ -651,6 +651,7 @@ function jv_options( )
 	register_setting( 'my_theme', 'all_text_color');
 	register_setting( 'my_theme', 'text_police');
 	register_setting( 'my_theme', 'back_boxes');
+	register_setting( 'my_theme', 'cat_title');
 	
 }
 // la fonction myThemeAdminMenu( ) sera ex�cut�e
@@ -748,15 +749,17 @@ function VueOptionPage( )
 					<td><input type="text" id="back_boxes" name="back_boxes" class="back_boxes" value="'.get_option( 'back_boxes' ).'" /></td>
 				</tr>
 				<tr valign="top">
-					<th scope="row"><label for="all_texte_couleur">Couleur du texte </label></th>
+					<th scope="row"><label for="all_text_color">Couleur du corps du texte</label></th>
 					<td><input type="text" id="all_text_color" name="all_text_color" class="all_text_color" value="'.get_option( 'all_text_color' ).'" /></td>
 				</tr>
 				<tr valign="top">
 					<th scope="row"><label for="text_police">Police d\'ecriture</label></th>
 					<td><select name="text_police">'.$str_string.'</select></td>
 				</tr>
-				
-
+				<tr valign="top">
+					<th scope="row"><label for="cat_title">Couleur des titres des catégories</label></th>
+					<td><input type="text" id="cat_title" name="cat_title" class="cat_title" value="'.get_option( 'cat_title' ).'" /></td>
+				</tr>
 			</table>
 			<p class="submit">
 				<input type="submit" class="button-primary" value="Appliquer les modifications" />
@@ -798,7 +801,8 @@ function myThemeCss( )
 		|| (get_option('entete_menu') != '')
 		|| (get_option('back_boxes') != '')
 		|| (get_option('all_text_color') != '')
-		|| (get_option('police_ecriture') != '')) 
+		|| (get_option('police_ecriture') != '')
+		|| (get_option('cat_title') != '')) 
 		{ ?>		
 		<style type="text/css">
 			<?php if (get_option('image_background') != ''){ ?>
@@ -846,7 +850,19 @@ function myThemeCss( )
 			<?php } 
 			if (get_option('all_text_color') != ''){
 			?>
-				#container{color:<?php echo get_option( 'all_text_color' ); ?> !important ;}
+				#container .main-box-content ul li a,
+				#container .main-box-content ul li a > p,
+				#container .main-box-content li a,
+				#container .main-box-content li > p,
+				#container #main-box-1 ul li a,
+				#container #main-box-1 ul li a > p,  
+				#container #main-box-2 ul li a,
+				#container #main-box-2 ul li a > p, 
+				#container #main-box-3 ul li a,
+				#container #main-box-3 ul li a > p, 
+				#container #main-box-4 ul li a,
+				#container #main-box-4 ul li a > p,
+				.menu_utilisateur{color:<?php echo get_option( 'all_text_color' ); ?> !important ;}
 			<?php 
 			
 			}
@@ -856,7 +872,13 @@ function myThemeCss( )
 			<?php
 			
 			}
+			if (get_option('cat_title') != ''){
 			?>
+				.main-box-title{color:<?php echo get_option( 'cat_title' ); ?> !important ;}
+			<?php
+			}
+			?>
+
 		</style>
 	<?php } 
 }
