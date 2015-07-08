@@ -22,11 +22,11 @@
 		})
 		.open();
 	})
-	$('#background_color, #text_color, #background_menu,.texte_menu, #entete_menu, #back_boxes,#all_text_color,#cat_title').click(function(e){
+	$('#background_color, #text_color, #background_menu,.texte_menu, #entete_menu, #back_boxes,#all_text_color,#cat_title,#back_gen').click(function(e){
 		var id = e.target.id;
 		console.log(id);
 	$(function() {
-				$('.background_color, .text_color, .background_menu,.texte_menu,#entete_menu, #back_boxes,#all_text_color,#cat_title').wpColorPicker();		
+				$('.background_color, .text_color, .background_menu,.texte_menu,#entete_menu, #back_boxes,#all_text_color,#cat_title,#back_gen').wpColorPicker();		
 			});
    });
 	

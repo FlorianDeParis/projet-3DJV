@@ -652,6 +652,7 @@ function jv_options( )
 	register_setting( 'my_theme', 'text_police');
 	register_setting( 'my_theme', 'back_boxes');
 	register_setting( 'my_theme', 'cat_title');
+	register_setting( 'my_theme', 'back_gen');
 	
 }
 // la fonction myThemeAdminMenu( ) sera ex�cut�e
@@ -760,6 +761,10 @@ function VueOptionPage( )
 					<th scope="row"><label for="cat_title">Couleur des titres des catégories</label></th>
 					<td><input type="text" id="cat_title" name="cat_title" class="cat_title" value="'.get_option( 'cat_title' ).'" /></td>
 				</tr>
+				<tr valign="top">
+					<th scope="row"><label for="back_gen">Couleur de fond</label></th>
+					<td><input type="text" id="back_gen" name="back_gen" class="back_gen" value="'.get_option( 'back_gen' ).'" /></td>
+				</tr>
 			</table>
 			<p class="submit">
 				<input type="submit" class="button-primary" value="Appliquer les modifications" />
@@ -802,7 +807,8 @@ function myThemeCss( )
 		|| (get_option('back_boxes') != '')
 		|| (get_option('all_text_color') != '')
 		|| (get_option('police_ecriture') != '')
-		|| (get_option('cat_title') != '')) 
+		|| (get_option('cat_title') != '')
+		|| (get_option('back_gen') != '')) 
 		{ ?>		
 		<style type="text/css">
 			<?php if (get_option('image_background') != ''){ ?>
@@ -875,6 +881,12 @@ function myThemeCss( )
 			if (get_option('text_police') != ''){
 			?>
 				#container{ font-family:<?php echo get_option( 'text_police' ); ?> !important;}
+			<?php
+			
+			}
+			if (get_option('back_gen') != ''){
+			?>
+				#main{ background-color: <?php echo get_option( 'back_gen' ); ?>!important;}
 			<?php
 			
 			}
