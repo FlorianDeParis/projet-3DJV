@@ -488,7 +488,7 @@ div.menu li {
 #container h3{margin: 0px!important; text-transform: uppercase; text-decoration: none!important; color:#aaa; line-height: 65px!important; font-weight: bold; display: inline-block;}
 	#container #main-box-1, #container #main-box-2, #container #main-box-3, #container #main-box-4{background-color: #343434; text-align: center; font-family:'Roboto', Arial;}
 	#container #main-box-1 ul, #container #main-box-2 ul, #container #main-box-3 ul, #container #main-box-4 ul{margin-left: 0px;}
-	#container #main-box-1 li, #container #main-box-2 li, #container #main-box-3 li, #container #main-box-4 li{list-style-type: none;}
+	#container #main-box-1 li, #container #main-box-2 li, #container #main-box-3 li, #container #main-box-4 li{list-style-type: none; border-bottom: solid 1px #000;}
 		#container .article_link{padding-top: 20px!important; padding-bottom: 20px!important;}
 	#container #main-box-1 li:hover, #container #main-box-2 li:hover, #container #main-box-3 li:hover, #container #main-box-4 li:hover{background: #787878;}
 	#container #main-box-1{margin-bottom: 10px;}
