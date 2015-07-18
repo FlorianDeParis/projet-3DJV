@@ -45,6 +45,9 @@
  */
  
  
+@ini_set( 'upload_max_size' , '250M' ); 
+@ini_set( 'post_max_size', '250M'); 
+@ini_set( 'max_execution_time', '300' );
  
 if ( ! isset( $content_width ) )
 	$content_width = 640;
@@ -796,7 +799,6 @@ function myThemeCss( )
     else { ?>
         <link rel="shortcut icon" href="<?php echo get_stylesheet_directory_uri() ?>/images/favicon.ico" />
     <?php }?>
-	'')
 	<?php if ((get_option('image_background') != '')
 		|| (get_option('background_color')!= '') 
 		|| (get_option('image_banner') != '')

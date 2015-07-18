@@ -29,10 +29,14 @@ get_header(); ?>
 						$postslist = get_posts( $actu_args );
 						foreach ( $postslist as $post ) :
 						  setup_postdata( $post ); ?> 
+						
+							
+						
 							<li>
 								<a href="<?php the_permalink();?>" class="no_underline no_hover article_link">
 									<!--<?php the_date(); ?>-->
 									<p><?php the_title(); ?></p>
+									<?php echo the_post_thumbnail('miniImage');?>
 									<p><?php the_excerpt(); ?></p>
 								</a>
 							</li>
@@ -61,6 +65,7 @@ get_header(); ?>
 								<a href="<?php the_permalink();?>" class="no_underline no_hover article_link">
 									<!--<?php the_date(); ?>-->
 									<p><?php the_title(); ?></p>
+									<?php echo the_post_thumbnail('miniImage');?>
 									<p><?php the_excerpt(); ?></p>
 								</a>
 							</li>
@@ -86,6 +91,7 @@ get_header(); ?>
 								<a href="<?php the_permalink();?>" class="no_underline no_hover article_link">
 									<!--<?php the_date(); ?>-->
 									<p><?php the_title(); ?></p>
+									<?php echo the_post_thumbnail('miniImage');?>
 									<p><?php the_excerpt(); ?></p>
 								</a>
 							</li>
@@ -113,6 +119,7 @@ get_header(); ?>
 								<a href="<?php the_permalink();?>" class="no_underline no_hover article_link">
 									<!--<?php the_date(); ?>-->
 									<p><?php the_title(); ?></p>
+									<?php echo the_post_thumbnail('miniImage');?>
 									<p><?php the_excerpt(); ?></p>
 								</a>
 							</li>
