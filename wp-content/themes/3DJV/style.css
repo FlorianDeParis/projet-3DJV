@@ -1328,7 +1328,7 @@ img#wpstats {
 /* LISTE DES CATEGORIES */
 #content .entry-content{color: #aaa;}
 #content .page-title{color: #aaa; font-family: 'Roboto', Arial;}
-	#content .post{background: #252525; padding-top: 24px; padding-bottom: 24px; padding-left: 24px; margin: 0px;}
+	#content .post{background: #252525; border-bottom: solid 3px #000; padding-top: 24px; padding-bottom: 24px; padding-left: 24px; margin: 0px;}
 		#content h2.entry-title a{color: #496FB1;}
 		#content h2.entry-title a:hover{color: #aaa;}
 		#content .entry-summary p{color: #aaa; font-family: 'Roboto', Arial;}
